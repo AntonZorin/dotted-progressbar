@@ -52,6 +52,10 @@ public class DottedProgressBar extends View {
 
         int defaultColor = r.getColor(R.color.defaultColor);
 
+
+
+
+
         mDegreePerCircle = 360 / mCirclesCount;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(getResources().getColor(R.color.defaultColor));
