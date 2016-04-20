@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="DottedProgressBar">
-        <attr name="dotColor" format="color"/>
+        <attr name="baseColor" format="color"/>
         <attr name="arrowsColor" format="color"/>
         <attr name="centerColor" format="color"/>
+        <attr name="clockwiseDots" format="boolean"/>
+        <attr name="counterClockwiseArrows" format="boolean"/>
+        <attr name="hideArrows" format="boolean"/>
+        <attr name="dotsCount" format="integer"/>
+        <attr name="maxDotsSizePercent" format="integer"/>
+        <attr name="minDotsSizePercent" format="integer"/>
+        <attr name="arrowWidthPercent" format="integer"/>
+        <attr name="arrowHourPaddingPercent" format="integer"/>
+        <attr name="arrowMinutePaddingPercent" format="integer"/>
+        <attr name="arrowHourSpeed" format="integer"/>
+        <attr name="arrowMinuteSpeed" format="integer"/>
+        <attr name="rotationSpeed" format="integer"/>
+
     </declare-styleable>
 </resources>

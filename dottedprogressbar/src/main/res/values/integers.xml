@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="defaultDotsCount">12</integer>
+    <integer name="defaultMaxDotSize">10</integer>
+    <integer name="defaultMinDotSize">3</integer>
+    <integer name="defaultArrowWidthSize">7</integer>
+    <integer name="defaultHourArrowPadding">28</integer>
+    <integer name="defaultMinuteArrowPadding">23</integer>
+    <integer name="defaultHourArrowSpeed">5</integer>
+    <integer name="defaultMinuteArrowSpeed">20</integer>
+    <integer name="defaultRotationSpeed">6</integer>
+</resources>
