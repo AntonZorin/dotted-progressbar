@@ -21,8 +21,6 @@ public class DottedProgressBar extends View {
     private float mCenter;
     private float mTimeInterval;
     private float mDeltaSize;
-    private final float UPDATE_THRESHOLD = 3f;
-
     private boolean isClockWiseDots;
     private boolean isCounterClockWiseArrows;
     private boolean hideArrows;
@@ -113,15 +111,6 @@ public class DottedProgressBar extends View {
 
     public void setHideArrows(boolean hideArrows) {
         this.hideArrows = hideArrows;
-        invalidate();
-    }
-
-    public int getDotsCount() {
-        return mDotsCount;
-    }
-
-    public void setDotsCount(int dotsCount) {
-        mDotsCount = dotsCount;
         invalidate();
     }
 
@@ -327,7 +316,8 @@ public class DottedProgressBar extends View {
         }
 
         mTimeInterval += mRotationSpeed;
-        if (mTimeInterval >= UPDATE_THRESHOLD) {
+        int updateThreshold = 3;
+        if (mTimeInterval >= updateThreshold) {
             mIterator++;
             mTimeInterval = 0;
         }

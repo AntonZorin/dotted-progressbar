@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mProgressBar = (DottedProgressBar) findViewById(R.id.progress);
-        mProgressBar.setDotsCount(7);
         mProgressBar.setClockWiseDots(false);
         mProgressBar.setBaseColor(R.color.colorGreen);
     }
