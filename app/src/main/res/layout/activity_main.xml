@@ -10,19 +10,21 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 tools:context="com.antonzorin.dottedprogressbarexample.MainActivity">
 
+
     <com.antonzorin.dottedprogressbar.DottedProgressBar
+        android:id="@+id/progress"
         android:layout_width="60dp"
         android:layout_height="350dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        app:arrowHourPaddingPercent="40"
-        app:arrowMinutePaddingPercent="30"
-        app:arrowWidthPercent="14"
-        app:baseColor="#b41407"
-        app:arrowMinuteSpeed="20"
-        app:arrowHourSpeed="5"
-        app:clockwiseDots="true"
-        app:rotationSpeed="6"
-        app:maxDotsSizePercent="12"
-        app:minDotsSizePercent="5"/>
+        app:dpArrowHourPaddingPercent="40"
+        app:dpArrowMinutePaddingPercent="30"
+        app:dpArrowWidthPercent="14"
+        app:dpBaseColor="#f1cd00"
+        app:dpArrowMinuteSpeed="20"
+        app:dpArrowHourSpeed="5"
+        app:dpClockwiseDots="true"
+        app:dpRotationSpeed="10"
+        app:dpMaxDotsSizePercent="12"
+        app:dpMinDotsSizePercent="5"/>
 </RelativeLayout>

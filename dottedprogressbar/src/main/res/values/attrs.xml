@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="DottedProgressBar">
-        <attr name="baseColor" format="color"/>
-        <attr name="arrowsColor" format="color"/>
-        <attr name="centerColor" format="color"/>
-        <attr name="clockwiseDots" format="boolean"/>
-        <attr name="counterClockwiseArrows" format="boolean"/>
-        <attr name="hideArrows" format="boolean"/>
+        <attr name="dpBaseColor" format="color"/>
+        <attr name="dpArrowsColor" format="color"/>
+        <attr name="dpCenterColor" format="color"/>
+        <attr name="dpClockwiseDots" format="boolean"/>
+        <attr name="dpCounterClockwiseArrows" format="boolean"/>
+        <attr name="dpHideArrows" format="boolean"/>
         <attr name="dotsCount" format="integer"/>
-        <attr name="maxDotsSizePercent" format="integer"/>
-        <attr name="minDotsSizePercent" format="integer"/>
-        <attr name="arrowWidthPercent" format="integer"/>
-        <attr name="arrowHourPaddingPercent" format="integer"/>
-        <attr name="arrowMinutePaddingPercent" format="integer"/>
-        <attr name="arrowHourSpeed" format="integer"/>
-        <attr name="arrowMinuteSpeed" format="integer"/>
-        <attr name="rotationSpeed" format="integer"/>
-
+        <attr name="dpMaxDotsSizePercent" format="integer"/>
+        <attr name="dpMinDotsSizePercent" format="integer"/>
+        <attr name="dpArrowWidthPercent" format="integer"/>
+        <attr name="dpArrowHourPaddingPercent" format="integer"/>
+        <attr name="dpArrowMinutePaddingPercent" format="integer"/>
+        <attr name="dpArrowHourSpeed" format="integer"/>
+        <attr name="dpArrowMinuteSpeed" format="integer"/>
+        <attr name="dpRotationSpeed" format="integer"/>
     </declare-styleable>
 </resources>
