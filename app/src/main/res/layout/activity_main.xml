@@ -13,18 +13,18 @@
 
     <com.antonzorin.dottedprogressbar.DottedProgressBar
         android:id="@+id/progress"
-        android:layout_width="60dp"
-        android:layout_height="350dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         app:dpArrowHourPaddingPercent="40"
         app:dpArrowMinutePaddingPercent="30"
-        app:dpArrowWidthPercent="14"
-        app:dpBaseColor="#f1cd00"
+        app:dpArrowWidthPercent="12"
+        app:dpDotsCount="12"
         app:dpArrowMinuteSpeed="20"
         app:dpArrowHourSpeed="5"
         app:dpClockwiseDots="true"
-        app:dpRotationSpeed="10"
-        app:dpMaxDotsSizePercent="12"
+        app:dpRotationSpeed="5"
+        app:dpMaxDotsSizePercent="14"
         app:dpMinDotsSizePercent="5"/>
 </RelativeLayout>

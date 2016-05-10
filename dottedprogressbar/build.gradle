@@ -14,7 +14,6 @@ ext {
     gitUrl = 'https://github.com/AntonZorin/dotted-progressbar.git'
 
     libraryVersion = '0.2.2'
-
     developerId = 'azimuth256'
     developerName = 'Anton Zorin'
     developerEmail = 'anton256@gmail.com'

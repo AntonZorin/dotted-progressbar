@@ -40,21 +40,21 @@ public class DottedProgressBar extends View {
     private float mMinuteArrowSpeed;
     private float mMinuteArrowAngle;
     private float mHourArrowAngle;
+    private float DEFAULT_SIZE = 80;
 
     //region constructor
     public DottedProgressBar(Context context) {
-        super(context);
-        init(context, null);
+        this(context, null);
     }
 
     public DottedProgressBar(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+        this(context, attrs, R.attr.dpStyle);
+
     }
 
     public DottedProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context, attrs, defStyleAttr);
     }
     //endregion
 
@@ -250,9 +250,9 @@ public class DottedProgressBar extends View {
     }
     //endregion
 
-    void init(Context context, AttributeSet attrs) {
+    void init(Context context, AttributeSet attrs, int defStyleAttr) {
         Resources r = getResources();
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DottedProgressBar);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DottedProgressBar, defStyleAttr, R.style.Widget_DottedProgressBar);
 
         int defaultColor = r.getColor(R.color.defaultColor);
         int defaultDotsCount = r.getInteger(R.integer.defaultDotsCount);
@@ -265,14 +265,13 @@ public class DottedProgressBar extends View {
         int defaultMinuteArrowSpeed = r.getInteger(R.integer.defaultMinuteArrowSpeed);
         int defaultRotationSpeed = r.getInteger(R.integer.defaultRotationSpeed);
 
-
         mDotsPaint.setColor(a.getColor(R.styleable.DottedProgressBar_dpBaseColor, defaultColor));
         mCenterPaint.setColor(a.getColor(R.styleable.DottedProgressBar_dpCenterColor, a.getColor(R.styleable.DottedProgressBar_dpBaseColor, defaultColor)));
         mArrowsPaint.setColor(a.getColor(R.styleable.DottedProgressBar_dpArrowsColor, a.getColor(R.styleable.DottedProgressBar_dpBaseColor, defaultColor)));
         isClockWiseDots = a.getBoolean(R.styleable.DottedProgressBar_dpClockwiseDots, false);
         isCounterClockWiseArrows = a.getBoolean(R.styleable.DottedProgressBar_dpCounterClockwiseArrows, false);
         hideArrows = a.getBoolean(R.styleable.DottedProgressBar_dpHideArrows, false);
-        mDotsCount = a.getInteger(R.styleable.DottedProgressBar_dotsCount, defaultDotsCount);
+        mDotsCount = a.getInteger(R.styleable.DottedProgressBar_dpDotsCount, defaultDotsCount);
         mMaxDotSizePercent = a.getInteger(R.styleable.DottedProgressBar_dpMaxDotsSizePercent, defaultMaxDotSize);
         mMinDotSizePercent = a.getInteger(R.styleable.DottedProgressBar_dpMinDotsSizePercent, defaultMinDotSize);
         mArrowWidthPercent = a.getInteger(R.styleable.DottedProgressBar_dpArrowWidthPercent, defaultArrowWidthSize);
@@ -288,24 +287,8 @@ public class DottedProgressBar extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int w = MeasureSpec.getSize(widthMeasureSpec);
-        int h = MeasureSpec.getSize(heightMeasureSpec);
-        int smallestSide = Math.min(w, h);
-
-        mCenter = smallestSide * 0.5f;
-        mMaxCircleSize = smallestSide / 100 * mMaxDotSizePercent;//10% of  size
-        float minCircleSize = smallestSide / 100 * mMinDotSizePercent;
-        mDeltaSize = (mMaxCircleSize - minCircleSize) / mDotsCount;
-        mHourArrowTopPadding = smallestSide / 100 * mArrowHourPaddingPercent;//28% of  size
-        mMinuteArrowTopPadding = smallestSide / 100 * mArrowMinutePaddingPercent;//23% of  size
-        mArrowWidth = smallestSide / 100 * mArrowWidthPercent;//7% of  size
-        setMeasuredDimension(smallestSide, smallestSide);
-    }
-
-    @Override
     protected void onDraw(Canvas canvas) {
-        for (int i = (0 + mIterator); i <= (mDotsCount + mIterator); i++) {
+        for (int i = mIterator; i < (mDotsCount + mIterator); i++) {
             float circleSize = mMaxCircleSize - mDeltaSize * (i - mIterator);
             canvas.save();
             float speed = mSpaceBetweenDots * i;
@@ -341,5 +324,31 @@ public class DottedProgressBar extends View {
             //draw center circle
             canvas.drawCircle(mCenter, mCenter, mArrowWidth * 0.5f, mCenterPaint);
         }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int hMode = MeasureSpec.getMode(heightMeasureSpec);
+        int wMode = MeasureSpec.getMode(widthMeasureSpec);
+
+        int smallestSide;
+        if (hMode == MeasureSpec.EXACTLY || wMode == MeasureSpec.EXACTLY) {
+            int w = MeasureSpec.getSize(widthMeasureSpec);
+            int h = MeasureSpec.getSize(heightMeasureSpec);
+            smallestSide = Math.min(w, h);
+        } else {
+            float density = getContext().getResources().getDisplayMetrics().density;
+            smallestSide = (int) (DEFAULT_SIZE * density);
+        }
+
+        mCenter = smallestSide * 0.5f;
+        mMaxCircleSize = smallestSide / 100 * mMaxDotSizePercent;//10% of  size
+        float minCircleSize = smallestSide / 100 * mMinDotSizePercent;
+        mDeltaSize = (mMaxCircleSize - minCircleSize) / mDotsCount;
+        mHourArrowTopPadding = smallestSide / 100 * mArrowHourPaddingPercent;//28% of  size
+        mMinuteArrowTopPadding = smallestSide / 100 * mArrowMinutePaddingPercent;//23% of  size
+        mArrowWidth = smallestSide / 100 * mArrowWidthPercent;//7% of  size
+
+        setMeasuredDimension(smallestSide, smallestSide);
     }
 }
