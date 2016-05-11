@@ -1,14 +1,14 @@
-# **Dotted ProgressBar**
+# Dotted ProgressBar
 ![]({{site.baseurl}}//dpb.gif)
 Animated customizable progress bar, made of dots.
 
-# **Usage**
+# Usage
 For a working implementation of this widget see example in  _dottedprogressbarexample_ folder.
 
 ## Step 1
 Add dependency to your project:
 
-## **Gradle**
+## Gradle
 ```
 dependencies {
     compile 'com.antonzorin:dottedprogressbar:0.2.3'
@@ -29,7 +29,7 @@ dependencies {
 ## Step 2
 Set widget to layout:
 
-```android
+```
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -52,9 +52,9 @@ Set widget to layout:
         app:dpMinDotsSizePercent="5"
         app:dpRotationSpeed="5" />
 </LinearLayout>
-       ```
+```
 
-# **Styling**
+# Styling
 
 - **dpBaseColor** - _base widget color_
 - **dpArrowsColor** - _color of arrows_
