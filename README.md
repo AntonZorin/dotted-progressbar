@@ -1,6 +1,7 @@
 # Dotted ProgressBar
-![]({{site.baseurl}}//dpb.gif)
 Animated customizable progress bar, made of dots.
+
+![alt tag](https://github.com/AntonZorin/dotted-progressbar/blob/master/dpb.gif)
 
 # Usage
 For a working implementation of this widget see example in  _dottedprogressbarexample_ folder.
